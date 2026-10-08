@@ -1,0 +1,130 @@
+{
+  "best_model": "Linear Regression",
+  "models": [
+    {
+      "name": "Linear Regression",
+      "r2": 0.8986605429973671,
+      "mae": 17510.60429337135,
+      "rmse": 23659.4913540437,
+      "cv_r2": 0.9101854099452135,
+      "cv_r2_std": 0.01961455513544138
+    },
+    {
+      "name": "Decision Tree",
+      "r2": 0.7863080285000882,
+      "mae": 23296.440167917175,
+      "rmse": 34356.603284479075,
+      "cv_r2": 0.7777681179437719,
+      "cv_r2_std": 0.020696974752538087
+    },
+    {
+      "name": "Random Forest",
+      "r2": 0.8914327322726029,
+      "mae": 17218.719933611745,
+      "rmse": 24488.69100164141,
+      "cv_r2": 0.8711907540334943,
+      "cv_r2_std": 0.018339214679614597
+    },
+    {
+      "name": "Gradient Boosting",
+      "r2": 0.9190693322617389,
+      "mae": 15216.870046794724,
+      "rmse": 21143.29547446167,
+      "cv_r2": 0.8921781673095197,
+      "cv_r2_std": 0.018928146789725212
+    }
+  ],
+  "n_train": 1166,
+  "n_test": 292,
+  "residual_q10": -0.15759315868374968,
+  "residual_q90": 0.14978869066681513,
+  "target": "SalePrice (USD)",
+  "features": [
+    "OverallQual",
+    "GrLivArea",
+    "TotalBsmtSF",
+    "LotArea",
+    "BedroomAbvGr",
+    "FullBath",
+    "TotRmsAbvGrd",
+    "GarageCars",
+    "Fireplaces",
+    "YearBuilt",
+    "YearRemodAdd",
+    "Neighborhood",
+    "KitchenQual",
+    "BldgType"
+  ],
+  "importance": [
+    {
+      "feature": "GrLivArea",
+      "label": "Living area",
+      "importance": 0.41827834163544997
+    },
+    {
+      "feature": "OverallQual",
+      "label": "Overall quality",
+      "importance": 0.17786734845983118
+    },
+    {
+      "feature": "YearBuilt",
+      "label": "Year built",
+      "importance": 0.11112559374303008
+    },
+    {
+      "feature": "TotalBsmtSF",
+      "label": "Basement area",
+      "importance": 0.07381191837551557
+    },
+    {
+      "feature": "Neighborhood",
+      "label": "Neighborhood",
+      "importance": 0.053620416916541264
+    },
+    {
+      "feature": "YearRemodAdd",
+      "label": "Year remodeled",
+      "importance": 0.047022535238885985
+    },
+    {
+      "feature": "GarageCars",
+      "label": "Garage capacity",
+      "importance": 0.043105076688813984
+    },
+    {
+      "feature": "KitchenQual",
+      "label": "Kitchen quality",
+      "importance": 0.027028715478799703
+    },
+    {
+      "feature": "BldgType",
+      "label": "Building type",
+      "importance": 0.02243448090645741
+    },
+    {
+      "feature": "Fireplaces",
+      "label": "Fireplaces",
+      "importance": 0.014164486313207667
+    },
+    {
+      "feature": "BedroomAbvGr",
+      "label": "Bedrooms",
+      "importance": 0.006275687701714899
+    },
+    {
+      "feature": "LotArea",
+      "label": "Lot size",
+      "importance": 0.005086663312310569
+    },
+    {
+      "feature": "FullBath",
+      "label": "Full bathrooms",
+      "importance": 0.00017873522944163173
+    },
+    {
+      "feature": "TotRmsAbvGrd",
+      "label": "Rooms above ground",
+      "importance": 0.0
+    }
+  ]
+}

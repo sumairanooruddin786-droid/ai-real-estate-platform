@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Plotwise{% endblock %} | AI Real Estate Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/">
+        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M4 15 16 5l12 10v12H4V15Z" fill="#14574f"/><rect x="13" y="17" width="6" height="10" fill="#d9a441"/></svg>
+        Plotwise
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="/" class="{{ 'active' if active == 'dashboard' }}">Market overview</a>
+        <a href="/predict" class="{{ 'active' if active == 'predict' }}">Price estimate</a>
+        <a href="/recommend" class="{{ 'active' if active == 'recommend' }}">Find homes</a>
+        <a href="/assistant" class="{{ 'active' if active == 'assistant' }}">Assistant</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    {% if not ready %}
+      <div class="notice">
+        <h2>Finish the setup</h2>
+        <p>{{ error }}</p>
+        <p class="small">Then restart the server with <code>uvicorn app.main:app --reload</code>.</p>
+      </div>
+    {% else %}
+      {% block content %}{% endblock %}
+    {% endif %}
+  </main>
+  <footer><div class="wrap">Built on historical home sales from Ames, Iowa (2006-2010, Kaggle). Estimates are for learning and are not appraisals or financial advice.</div></footer>
+  <script src="/static/js/common.js"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,291 @@
+{
+  "cleaning": {
+    "rows_raw": 1460,
+    "columns_raw": 81,
+    "missing_cells_raw": 7829,
+    "duplicates_removed": 0,
+    "outliers_removed": 2,
+    "missing_cells_clean": 0,
+    "rows_clean": 1458,
+    "columns_clean": 86
+  },
+  "homes": 1458,
+  "median_price": 163000.0,
+  "mean_price": 180932.91906721535,
+  "median_area": 1461.5,
+  "median_ppsf": 120.115,
+  "price_skew": 1.88,
+  "top_correlations": {
+    "TotalSF": 0.833,
+    "OverallQual": 0.796,
+    "GrLivArea": 0.735,
+    "TotalBsmtSF": 0.651,
+    "GarageCars": 0.641,
+    "TotalBath": 0.636,
+    "1stFlrSF": 0.632,
+    "GarageArea": 0.629
+  },
+  "price_by_decade": {
+    "1870": 108000.0,
+    "1880": 124000.0,
+    "1890": 142200.0,
+    "1900": 127000.0,
+    "1910": 128750.0,
+    "1920": 115000.0,
+    "1930": 126500.0,
+    "1940": 122900.0,
+    "1950": 136000.0,
+    "1960": 146000.0,
+    "1970": 147500.0,
+    "1980": 178000.0,
+    "1990": 204000.0,
+    "2000": 224000.0,
+    "2010": 394432.0
+  },
+  "price_by_year_sold": {
+    "2006": 163995.0,
+    "2007": 166000.0,
+    "2008": 165000.0,
+    "2009": 162000.0,
+    "2010": 155000.0
+  },
+  "neighborhoods": [
+    {
+      "code": "NridgHt",
+      "name": "Northridge Heights",
+      "homes": 77.0,
+      "median_price": 315000.0,
+      "median_ppsf": 157.96,
+      "median_quality": 8.0
+    },
+    {
+      "code": "NoRidge",
+      "name": "Northridge",
+      "homes": 41.0,
+      "median_price": 301500.0,
+      "median_ppsf": 128.19,
+      "median_quality": 8.0
+    },
+    {
+      "code": "StoneBr",
+      "name": "Stone Brook",
+      "homes": 25.0,
+      "median_price": 278000.0,
+      "median_ppsf": 157.86,
+      "median_quality": 8.0
+    },
+    {
+      "code": "Timber",
+      "name": "Timberland",
+      "homes": 38.0,
+      "median_price": 228475.0,
+      "median_ppsf": 134.0,
+      "median_quality": 7.5
+    },
+    {
+      "code": "Somerst",
+      "name": "Somerset",
+      "homes": 86.0,
+      "median_price": 225500.0,
+      "median_ppsf": 137.35000000000002,
+      "median_quality": 7.0
+    },
+    {
+      "code": "Veenker",
+      "name": "Veenker",
+      "homes": 11.0,
+      "median_price": 218000.0,
+      "median_ppsf": 143.82,
+      "median_quality": 6.0
+    },
+    {
+      "code": "Crawfor",
+      "name": "Crawford",
+      "homes": 51.0,
+      "median_price": 200624.0,
+      "median_ppsf": 115.51,
+      "median_quality": 6.0
+    },
+    {
+      "code": "ClearCr",
+      "name": "Clear Creek",
+      "homes": 28.0,
+      "median_price": 200250.0,
+      "median_ppsf": 119.28999999999999,
+      "median_quality": 6.0
+    },
+    {
+      "code": "CollgCr",
+      "name": "College Creek",
+      "homes": 150.0,
+      "median_price": 197200.0,
+      "median_ppsf": 134.515,
+      "median_quality": 7.0
+    },
+    {
+      "code": "Blmngtn",
+      "name": "Bloomington Heights",
+      "homes": 17.0,
+      "median_price": 191000.0,
+      "median_ppsf": 137.12,
+      "median_quality": 7.0
+    },
+    {
+      "code": "NWAmes",
+      "name": "Northwest Ames",
+      "homes": 73.0,
+      "median_price": 182900.0,
+      "median_ppsf": 110.95,
+      "median_quality": 6.0
+    },
+    {
+      "code": "Gilbert",
+      "name": "Gilbert",
+      "homes": 79.0,
+      "median_price": 181000.0,
+      "median_ppsf": 117.49,
+      "median_quality": 7.0
+    },
+    {
+      "code": "SawyerW",
+      "name": "Sawyer West",
+      "homes": 59.0,
+      "median_price": 179900.0,
+      "median_ppsf": 116.79,
+      "median_quality": 6.0
+    },
+    {
+      "code": "Mitchel",
+      "name": "Mitchell",
+      "homes": 49.0,
+      "median_price": 153500.0,
+      "median_ppsf": 132.91,
+      "median_quality": 5.0
+    },
+    {
+      "code": "NPkVill",
+      "name": "Northpark Villa",
+      "homes": 9.0,
+      "median_price": 146000.0,
+      "median_ppsf": 111.2,
+      "median_quality": 6.0
+    },
+    {
+      "code": "NAmes",
+      "name": "North Ames",
+      "homes": 225.0,
+      "median_price": 140000.0,
+      "median_ppsf": 120.45,
+      "median_quality": 5.0
+    },
+    {
+      "code": "SWISU",
+      "name": "South & West of Iowa State University",
+      "homes": 25.0,
+      "median_price": 139500.0,
+      "median_ppsf": 80.58,
+      "median_quality": 6.0
+    },
+    {
+      "code": "Blueste",
+      "name": "Bluestem",
+      "homes": 2.0,
+      "median_price": 137500.0,
+      "median_ppsf": 98.97,
+      "median_quality": 6.0
+    },
+    {
+      "code": "Sawyer",
+      "name": "Sawyer",
+      "homes": 74.0,
+      "median_price": 135000.0,
+      "median_ppsf": 120.76499999999999,
+      "median_quality": 5.0
+    },
+    {
+      "code": "BrkSide",
+      "name": "Brookside",
+      "homes": 58.0,
+      "median_price": 124300.0,
+      "median_ppsf": 100.895,
+      "median_quality": 5.0
+    },
+    {
+      "code": "Edwards",
+      "name": "Edwards",
+      "homes": 98.0,
+      "median_price": 119500.0,
+      "median_ppsf": 100.975,
+      "median_quality": 5.0
+    },
+    {
+      "code": "OldTown",
+      "name": "Old Town",
+      "homes": 113.0,
+      "median_price": 119000.0,
+      "median_ppsf": 92.08,
+      "median_quality": 5.0
+    },
+    {
+      "code": "BrDale",
+      "name": "Briardale",
+      "homes": 16.0,
+      "median_price": 106000.0,
+      "median_ppsf": 91.13,
+      "median_quality": 6.0
+    },
+    {
+      "code": "IDOTRR",
+      "name": "Iowa DOT and Rail Road",
+      "homes": 37.0,
+      "median_price": 103000.0,
+      "median_ppsf": 90.6,
+      "median_quality": 5.0
+    },
+    {
+      "code": "MeadowV",
+      "name": "Meadow Village",
+      "homes": 17.0,
+      "median_price": 88000.0,
+      "median_ppsf": 92.11,
+      "median_quality": 4.0
+    }
+  ],
+  "charts": [
+    {
+      "file": "price_distribution.png",
+      "title": "Price distribution",
+      "caption": "Prices are right-skewed, so the model is trained on the log of the price."
+    },
+    {
+      "file": "neighborhood_prices.png",
+      "title": "Location comparison",
+      "caption": "Neighborhood alone separates budget areas from premium ones."
+    },
+    {
+      "file": "area_vs_price.png",
+      "title": "Area versus price",
+      "caption": "Living area is the strongest size signal; colour shows quality."
+    },
+    {
+      "file": "quality_boxplot.png",
+      "title": "Quality and price",
+      "caption": "Each quality step lifts the typical price noticeably."
+    },
+    {
+      "file": "correlation_heatmap.png",
+      "title": "Correlations",
+      "caption": "Quality, living area and garage size lead the correlations with price."
+    },
+    {
+      "file": "price_trends.png",
+      "title": "Property trends",
+      "caption": "Median price by decade built and by year sold, to spot age and market-timing effects."
+    },
+    {
+      "file": "missing_values.png",
+      "title": "Data quality",
+      "caption": "Most gaps mean the feature is absent (no alley, no pool), not unknown."
+    }
+  ]
+}

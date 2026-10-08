@@ -1,0 +1,16 @@
+# secrets
+.env
+
+# python
+venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# local runtime data
+data/vectorstore/*
+data/uploads/*
+!data/vectorstore/.gitkeep
+!data/uploads/.gitkeep
+.DS_Store

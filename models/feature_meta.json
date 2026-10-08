@@ -1,0 +1,117 @@
+{
+  "defaults": {
+    "OverallQual": 6.0,
+    "GrLivArea": 1461.5,
+    "TotalBsmtSF": 991.0,
+    "LotArea": 9475.0,
+    "BedroomAbvGr": 3.0,
+    "FullBath": 2.0,
+    "TotRmsAbvGrd": 6.0,
+    "GarageCars": 2.0,
+    "Fireplaces": 1.0,
+    "YearBuilt": 1972.5,
+    "YearRemodAdd": 1994.0,
+    "Neighborhood": "NAmes",
+    "KitchenQual": "TA",
+    "BldgType": "1Fam"
+  },
+  "ranges": {
+    "OverallQual": {
+      "min": 1.0,
+      "max": 10.0,
+      "median": 6.0
+    },
+    "GrLivArea": {
+      "min": 334.0,
+      "max": 4476.0,
+      "median": 1461.5
+    },
+    "TotalBsmtSF": {
+      "min": 0.0,
+      "max": 3206.0,
+      "median": 991.0
+    },
+    "LotArea": {
+      "min": 1300.0,
+      "max": 215245.0,
+      "median": 9475.0
+    },
+    "BedroomAbvGr": {
+      "min": 0.0,
+      "max": 8.0,
+      "median": 3.0
+    },
+    "FullBath": {
+      "min": 0.0,
+      "max": 3.0,
+      "median": 2.0
+    },
+    "TotRmsAbvGrd": {
+      "min": 2.0,
+      "max": 14.0,
+      "median": 6.0
+    },
+    "GarageCars": {
+      "min": 0.0,
+      "max": 4.0,
+      "median": 2.0
+    },
+    "Fireplaces": {
+      "min": 0.0,
+      "max": 3.0,
+      "median": 1.0
+    },
+    "YearBuilt": {
+      "min": 1872.0,
+      "max": 2010.0,
+      "median": 1972.5
+    },
+    "YearRemodAdd": {
+      "min": 1950.0,
+      "max": 2010.0,
+      "median": 1994.0
+    }
+  },
+  "options": {
+    "Neighborhood": [
+      "Blmngtn",
+      "Blueste",
+      "BrDale",
+      "BrkSide",
+      "ClearCr",
+      "CollgCr",
+      "Crawfor",
+      "Edwards",
+      "Gilbert",
+      "IDOTRR",
+      "MeadowV",
+      "Mitchel",
+      "NAmes",
+      "NPkVill",
+      "NWAmes",
+      "NoRidge",
+      "NridgHt",
+      "OldTown",
+      "SWISU",
+      "Sawyer",
+      "SawyerW",
+      "Somerst",
+      "StoneBr",
+      "Timber",
+      "Veenker"
+    ],
+    "KitchenQual": [
+      "Ex",
+      "Fa",
+      "Gd",
+      "TA"
+    ],
+    "BldgType": [
+      "1Fam",
+      "2fmCon",
+      "Duplex",
+      "Twnhs",
+      "TwnhsE"
+    ]
+  }
+}

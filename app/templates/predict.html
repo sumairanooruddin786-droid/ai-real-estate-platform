@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}Price estimate{% endblock %}
+{% block content %}
+<div class="page-head">
+  <h1>What is this home worth?</h1>
+  <p>Describe the home and the estimate updates as you type. Anything you leave out uses the typical value for Ames.</p>
+</div>
+
+<div class="split">
+  <form id="predict-form" autocomplete="off" novalidate>
+    <fieldset>
+      <legend>Location and type</legend>
+      <div class="grid2">
+        <div class="field"><label for="Neighborhood">Neighborhood</label>
+          <select id="Neighborhood" name="Neighborhood">
+            {% for h in meta.neighborhoods %}<option value="{{ h.code }}" {{ 'selected' if h.code == meta.defaults.Neighborhood }}>{{ h.name }}</option>{% endfor %}
+          </select></div>
+        <div class="field"><label for="BldgType">Building type</label>
+          <select id="BldgType" name="BldgType">
+            {% for b in meta.bldg %}<option value="{{ b.code }}" {{ 'selected' if b.code == meta.defaults.BldgType }}>{{ b.name }}</option>{% endfor %}
+          </select></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Size</legend>
+      <div class="grid2">
+        <div class="field"><label for="GrLivArea">Living area <span class="hint">sq ft above ground</span></label>
+          <input type="number" id="GrLivArea" name="GrLivArea" min="300" max="6000" step="10" value="{{ meta.defaults.GrLivArea|int }}"></div>
+        <div class="field"><label for="TotalBsmtSF">Basement <span class="hint">sq ft</span></label>
+          <input type="number" id="TotalBsmtSF" name="TotalBsmtSF" min="0" max="6000" step="10" value="{{ meta.defaults.TotalBsmtSF|int }}"></div>
+        <div class="field"><label for="LotArea">Lot size <span class="hint">sq ft</span></label>
+          <input type="number" id="LotArea" name="LotArea" min="1000" max="250000" step="100" value="{{ meta.defaults.LotArea|int }}"></div>
+        <div class="field"><label for="TotRmsAbvGrd">Rooms above ground</label>
+          <input type="number" id="TotRmsAbvGrd" name="TotRmsAbvGrd" min="2" max="15" value="{{ meta.defaults.TotRmsAbvGrd|int }}"></div>
+      </div>
+      <div class="grid3">
+        <div class="field"><label for="BedroomAbvGr">Bedrooms</label>
+          <input type="number" id="BedroomAbvGr" name="BedroomAbvGr" min="0" max="10" value="{{ meta.defaults.BedroomAbvGr|int }}"></div>
+        <div class="field"><label for="FullBath">Full bathrooms</label>
+          <input type="number" id="FullBath" name="FullBath" min="0" max="5" value="{{ meta.defaults.FullBath|int }}"></div>
+        <div class="field"><label for="GarageCars">Garage <span class="hint">cars</span></label>
+          <input type="number" id="GarageCars" name="GarageCars" min="0" max="5" value="{{ meta.defaults.GarageCars|int }}"></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Quality and features</legend>
+      <div class="field">
+        <label for="OverallQual">Overall quality <output class="range-out" id="qual-out">{{ meta.defaults.OverallQual|int }}</output></label>
+        <input type="range" id="OverallQual" name="OverallQual" min="1" max="10" step="1" value="{{ meta.defaults.OverallQual|int }}">
+        <span class="hint">1 is very poor materials and finish, 10 is outstanding.</span>
+      </div>
+      <div class="grid2">
+        <div class="field"><label for="KitchenQual">Kitchen</label>
+          <select id="KitchenQual" name="KitchenQual">
+            {% for k in meta.kitchen %}<option value="{{ k.code }}" {{ 'selected' if k.code == meta.defaults.KitchenQual }}>{{ k.name }}</option>{% endfor %}
+          </select></div>
+        <div class="field"><label for="Fireplaces">Fireplaces</label>
+          <input type="number" id="Fireplaces" name="Fireplaces" min="0" max="4" value="{{ meta.defaults.Fireplaces|int }}"></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Age</legend>
+      <div class="grid2">
+        <div class="field"><label for="YearBuilt">Year built</label>
+          <input type="number" id="YearBuilt" name="YearBuilt" min="1850" max="2025" value="{{ meta.defaults.YearBuilt|int }}"></div>
+        <div class="field"><label for="YearRemodAdd">Year remodeled <span class="hint">same as built if never</span></label>
+          <input type="number" id="YearRemodAdd" name="YearRemodAdd" min="1850" max="2025" value="{{ meta.defaults.YearRemodAdd|int }}"></div>
+      </div>
+    </fieldset>
+  </form>
+
+  <aside class="slip-col" aria-live="polite">
+    <div class="slip loading" id="slip">
+      <div class="label">Estimated value</div>
+      <div class="price" id="slip-price">&nbsp;</div>
+      <div class="range" id="slip-range">Calculating...</div>
+      <div class="compare" id="slip-compare"></div>
+      <h3>What would change this price</h3>
+      <ul class="whatif" id="slip-whatif"></ul>
+      <p class="small muted" style="margin:14px 0 0" id="slip-model"></p>
+    </div>
+    <div class="error-box" id="slip-error" hidden></div>
+  </aside>
+</div>
+{% endblock %}
+{% block scripts %}<script src="/static/js/predict.js"></script>{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Market overview{% endblock %}
+{% block content %}
+<div class="page-head">
+  <h1>What {{ "{:,}".format(summary.homes) }} Ames home sales tell us</h1>
+  <p>The numbers behind every estimate, recommendation and answer in Plotwise. Start with an estimate for your own home or search for homes that fit your budget.</p>
+</div>
+
+<div class="stats">
+  <div class="stat"><b>${{ "{:,.0f}".format(summary.median_price) }}</b><span>Median sale price</span></div>
+  <div class="stat"><b>{{ "{:,.0f}".format(summary.median_area) }} sq ft</b><span>Median living area</span></div>
+  <div class="stat"><b>${{ "{:,.0f}".format(summary.median_ppsf) }}</b><span>Median price per sq ft</span></div>
+  <div class="stat"><b>{{ "%.0f"|format(best.r2 * 100) }}%</b><span>Price variation explained by the model on unseen homes</span></div>
+</div>
+
+<section class="section">
+  <h2>Data cleaning</h2>
+  <p>{{ "{:,}".format(summary.cleaning.rows_raw) }} rows and {{ summary.cleaning.columns_raw }} columns went in.
+     {{ summary.cleaning.duplicates_removed }} duplicate rows and {{ summary.cleaning.outliers_removed }} extreme outliers were removed,
+     and {{ "{:,}".format(summary.cleaning.missing_cells_raw) }} missing cells were filled
+     (a blank in fields like Alley or Pool means the feature does not exist, so it became "None").
+     Five features were added: house age, total square footage, total bathrooms, price per square foot and a remodeled flag.</p>
+</section>
+
+<section class="section">
+  <h2>Price analysis</h2>
+  <div class="charts">
+    {% for c in summary.charts %}
+    <figure class="{{ 'wide' if loop.index in (1, 6) }}">
+      <img src="/static/charts/{{ c.file }}" alt="{{ c.title }}: {{ c.caption }}" loading="lazy">
+      <figcaption><b>{{ c.title }}.</b> {{ c.caption }}</figcaption>
+    </figure>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section">
+  <h2>How the price model was chosen</h2>
+  <p>Four models were trained on 80% of the homes and tested on the other 20%. The winner was picked by cross-validation on the training part only, so the test result is an honest check.</p>
+  <div class="table-scroll">
+    <table class="data">
+      <thead><tr><th>Model</th><th>R&sup2; (test)</th><th>Average error</th><th>RMSE</th><th>Cross-validated R&sup2;</th></tr></thead>
+      <tbody>
+        {% for m in metrics.models %}
+        <tr class="{{ 'best' if m.name == metrics.best_model }}">
+          <td>{{ m.name }}{% if m.name == metrics.best_model %} (selected){% endif %}</td>
+          <td>{{ "%.3f"|format(m.r2) }}</td>
+          <td>${{ "{:,.0f}".format(m.mae) }}</td>
+          <td>${{ "{:,.0f}".format(m.rmse) }}</td>
+          <td>{{ "%.3f"|format(m.cv_r2) }} &plusmn; {{ "%.3f"|format(m.cv_r2_std) }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="charts" style="margin-top:28px">
+    <figure class="wide"><img src="/static/charts/model_comparison.png" alt="Model comparison by R-squared and average error" loading="lazy"><figcaption><b>Model comparison.</b> The selected model is highlighted.</figcaption></figure>
+    <figure><img src="/static/charts/actual_vs_predicted.png" alt="Predicted versus actual price" loading="lazy"><figcaption><b>Predicted vs actual.</b> Points close to the line are accurate estimates.</figcaption></figure>
+    <figure><img src="/static/charts/feature_importance.png" alt="Feature importance" loading="lazy"><figcaption><b>What drives price.</b> Importance is measured by how much accuracy drops when a feature is scrambled.</figcaption></figure>
+  </div>
+</section>
+{% endblock %}

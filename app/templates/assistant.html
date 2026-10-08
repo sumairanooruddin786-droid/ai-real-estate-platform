@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Assistant{% endblock %}
+{% block content %}
+<div class="page-head">
+  <h1>Ask the real estate assistant</h1>
+  <p>Get market answers from the sales data, or switch to documents-only mode to get answers strictly from your own files.</p>
+</div>
+
+<div class="assistant">
+  <section>
+    <div class="modes" role="group" aria-label="Answer source">
+      <button type="button" id="mode-advisor" aria-pressed="true">Market advisor</button>
+      <button type="button" id="mode-docs" aria-pressed="false">Documents only</button>
+    </div>
+    <p class="muted small mode-note" id="mode-note">Uses neighborhood statistics from the sales data, plus the documents when they help.</p>
+    <div class="chat">
+      <div class="messages" id="messages" aria-live="polite"></div>
+      <div class="starters" id="starters"></div>
+      <form class="composer" id="chat-form" autocomplete="off">
+        <input type="text" id="chat-input" placeholder="Ask about prices, neighborhoods or buying steps" maxlength="1500" aria-label="Your question">
+        <button class="btn" type="submit" id="chat-btn">Ask</button>
+      </form>
+    </div>
+    {% if not llm_on %}
+    <p class="small muted" style="margin-top:12px">No <code>GROQ_API_KEY</code> found, so answers show the retrieved facts directly. Add a key to <code>.env</code> to get written answers.</p>
+    {% endif %}
+  </section>
+
+  <aside class="panel">
+    <h2>Knowledge base</h2>
+    <p class="small muted">Documents the assistant can cite. Search method: {{ backend }}.</p>
+    <ul class="docs" id="doc-list"></ul>
+    <label for="doc-file">Add a document <span class="hint">PDF, TXT or MD, up to 10 MB</span></label>
+    <input type="file" id="doc-file" accept=".pdf,.txt,.md" style="margin-bottom:10px;width:100%">
+    <button class="btn ghost small" type="button" id="doc-upload">Upload and index</button>
+    <div class="upload-msg" id="upload-msg" role="status"></div>
+  </aside>
+</div>
+{% endblock %}
+{% block scripts %}<script src="/static/js/assistant.js"></script>{% endblock %}
